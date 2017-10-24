@@ -1,0 +1,61 @@
+! === font  ===
+
+*.font: xft:Source Code Pro:size=12
+
+! === colors ===
+
+*.foreground:   #ffeefc
+*.background:   #141021
+*.cursorColor:  #c16772
+
+! black
+*.color0:       #141021
+*.color8:       #545d67
+
+! red
+*.color1:       #c05c47
+*.color9:       #c16772
+
+! green
+*.color2:       #428e8e
+*.color10:      #afda6e
+
+! yellow
+*.color3:       #e4b226
+*.color11:      #ebcf1a
+
+! blue
+*.color4:       #4457b3
+*.color12:      #5890c5
+
+! magenta
+*.color5:       #903a62
+*.color13:      #9568a1
+
+! cyan
+*.color6:       #7aa1dc
+*.color14:      #abbcda
+
+! white
+*.color7:       #c4b7c5
+*.color15:      #ffeefc
+
+! === uxrvt ===
+URxvt.depth: 32
+URxvt*lineSpace: 1
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt.internalBorder: 10
+URxvt.transparent: true
+URxvt.shading: 20
+URxvt*loginShell: true
+URxvt.geometry: 80x20
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.perl-ext: default,matcher
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.url-launcher: firefox
+URxvt.matcher.button: 1

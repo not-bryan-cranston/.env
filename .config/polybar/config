@@ -1,0 +1,260 @@
+[colors]
+background = ${xrdb:background:#000}
+text = #835ea4
+icon = #603b88
+active = #faeeff
+alert = ${xrdb:color9:#f73}
+
+bg0 = #000000ff
+bg1 = ${colors.bg0}
+bg2 = ${colors.bg0}
+bg3 = ${colors.bg0}
+bg4 = ${colors.bg0}
+
+[settings]
+throttle-output = 5
+screenchange-reload = true
+
+[global/wm]
+
+[bar/top]
+width = 100%
+height = 40
+fixed-center = true
+
+background = ${colors.bg0}
+foreground = ${colors.text}
+
+line-size = 0
+
+font-0 = xos4 terminus:size=16;2
+font-1 = FontAwesome:size=11;3
+
+modules-left = i3
+modules-center = 
+modules-right = xwindow volume xbacklight cpu memory temperature wlan battery date
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/xwindow]
+type = internal/xwindow
+format-padding = 1
+label = %title:0:60:...%
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+wrapping-scroll = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.text}
+label-mode-background = ${colors.bg0}
+
+; focused = Active workspace on focused monitor
+label-focused = %index% %icon%
+label-focused-foreground = ${colors.active}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index% %icon%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-padding = 1
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-padding = 1
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format =  <label>
+label = %percentage%%
+
+format-background = ${colors.bg1}
+format-foreground = ${colors.icon}
+format-padding = 1
+
+label-foreground = ${colors.text}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format =  <label>,
+label = %percentage%%
+
+format-background = ${colors.bg2}
+format-foreground = ${colors.icon}
+format-padding = 1
+
+label-foreground = ${colors.text}
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = "<label> "
+label = %gb_used%
+
+format-background = ${colors.bg2}
+format-padding = 0
+
+label-foreground = ${colors.text}
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected =  <label-connected>
+label-connected = %signal%%
+
+format-disconnected =  <label-disconnected>
+label-disconnected = 0%
+
+format-connected-background = ${colors.bg3}
+format-connected-foreground = ${colors.icon}
+format-connected-padding = 1
+format-disconnected-background = ${colors.bg3}
+format-disconnected-foreground = ${colors.icon}
+format-disconnected-padding = 1
+
+label-connected-foreground = ${colors.text}
+label-disconnected-foreground = ${colors.text}
+
+[module/eth]
+type = internal/network
+interface = eth1
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;label-disconnected = %ifname% disconnected
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %b %d
+time = %H:%M
+
+format =  <label>
+label = %date% %time%
+
+format-background = ${colors.bg4}
+format-foreground = ${colors.icon}
+format-padding = 1
+
+label-foreground = ${colors.text}
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-muted =  <label-muted>
+
+label-volume = %percentage%%
+label-muted = mute
+
+format-volume-background = ${colors.bg1}
+format-volume-padding = 1
+format-muted-background = ${colors.bg1}
+format-muted-foreground = ${colors.icon}
+format-muted-padding = 1
+
+ramp-volume-foreground = ${colors.icon}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+label-muted-foreground = ${colors.text}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-full = <ramp-capacity> <label-full>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-charging-background = ${colors.bg3}
+format-charging-padding = 1
+format-full-background = ${colors.bg3}
+format-full-padding = 1
+format-discharging-background = ${colors.bg3}
+format-discharging-padding = 1
+
+ramp-capacity-foreground = ${colors.icon}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-0-foreground = ${colors.alert}
+
+animation-charging-foreground = ${colors.icon}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 500
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+format-background = ${colors.bg2}
+format-padding = 1
+format-warn-background = ${colors.bg2}
+format-warn-padding = 1
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.alert}
+
+ramp-foreground = ${colors.icon}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
