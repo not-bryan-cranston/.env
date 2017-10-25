@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --no-fehbg --bg-scale "$HOME/.config/feh/milkyway.jpg"
+feh --no-fehbg --bg-scale "$HOME/.config/feh/outrun.jpg"
