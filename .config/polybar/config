@@ -1,11 +1,11 @@
 [colors]
-background = ${xrdb:background:#000}
-text = #835ea4
-icon = #603b88
-active = #faeeff
-alert = ${xrdb:color9:#f73}
+background = ${xrdb:color0:#000}
+text = ${xrdb:color5:#f0f}
+icon = ${xrdb:color5:#f0f}
+active = ${xrdb:color15:#fff}
+alert = ${xrdb:color1:#f00}
 
-bg0 = #000000ff
+bg0 = ${colors.background}
 bg1 = ${colors.bg0}
 bg2 = ${colors.bg0}
 bg3 = ${colors.bg0}
@@ -17,7 +17,8 @@ screenchange-reload = true
 
 [global/wm]
 
-[bar/top]
+[bar/main]
+bottom = true
 width = 100%
 height = 40
 fixed-center = true

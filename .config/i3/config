@@ -1,6 +1,6 @@
 set $mod Mod1
 
-# navigation
+# standard keybindings
 ###########################################################
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -122,20 +122,25 @@ gaps outer 50
 smart_gaps on
 
 # colors
-set_from_resource $fg  color15 #ffffff
-set_from_resource $bg  color0  #000000
-set_from_resource $br  color0  #000000
-set_from_resource $bra color9  #ffffff
+set_from_resource $blk .color0 #000000
+set_from_resource $red .color1 #ff0000
+set_from_resource $grn .color2 #00ff00
+set_from_resource $yel .color3 #ffff00
+set_from_resource $blu .color4 #0000ff
+set_from_resource $mag .color5 #ff00ff
+set_from_resource $cyn .color6 #00ffff
+set_from_resource $wht .color7 #ffffff
 
 # appearance
-new_window pixel 3
+new_window pixel 2
 hide_edge_borders smart
+
 #                       border background text indicator child border
-client.focused          #6f3b7f  $bg        $fg  #6f3b7f     #6f3b7f
-client.focused_inactive $br    $bg        $fg  $br       $br
-client.unfocused        $br    $bg        $fg  $br       $br
-client.urgent           $br    $bg        $fg  $br       $br
-client.placeholder      $br    $bg        $fg  $br       $br
+client.focused          $mag   $blk       $wht $mag      $mag
+client.focused_inactive $blk   $blk       $wht $blk      $blk
+client.unfocused        $blk   $blk       $wht $blk      $blk
+client.urgent           $blk   $blk       $wht $blk      $blk
+client.placeholder      $blk   $blk       $wht $blk      $blk
 
 # keybindings
 bindsym $mod+Shift+x floating toggle
@@ -154,10 +159,10 @@ bindsym Control+Right exec "mpc next"
 
 # program keybindings
 for_window [class="URxvt" instance="floating"] floating enable
-bindsym $mod+Return exec "urxvt"
-bindsym $mod+Shift+Return exec "urxvt -name floating"
+bindsym $mod+Return exec --no-startup-id "urxvt"
+bindsym $mod+Shift+Return exec --no-startup-id "urxvt -name floating"
 
-bindsym $mod+c exec "firefox"
+bindsym $mod+c exec "xdg-open http://"
 bindsym $mod+space exec "rofi -show run"
 bindsym $mod+Shift+space exec "rofi -show drun"
 
@@ -167,7 +172,7 @@ bindsym $mod+Control+l exec "$HOME/.config/i3/lock.sh"
 bindsym $mod+Mod4+z exec "$HOME/.config/i3/lock.sh"
 bindsym XF86ScreenSaver exec "$HOME/.config/i3/lock.sh"
 
-# misc startup execs
+# startup execs
 exec_always --no-startup-id "$HOME/.config/feh/fehbg.sh"
-#exec --no-startup-id "compton -CG"
+exec --no-startup-id "compton -CG"
 exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"

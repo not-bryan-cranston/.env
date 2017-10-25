@@ -4,58 +4,59 @@
 
 ! === colors ===
 
-*.foreground:   #ffeefc
-*.background:   #141021
-*.cursorColor:  #c16772
+*.background: #111111
+*.foreground: #a0a0a0
 
-! black
-*.color0:       #141021
-*.color8:       #545d67
+*.colorBD: #cfcfcf
+*.colorUL: #a0a0a0
+*.colorIT: #686868
 
-! red
-*.color1:       #c05c47
-*.color9:       #c16772
+! BLK
+*.color0: #111111
+*.color8: #686868
 
-! green
-*.color2:       #428e8e
-*.color10:      #afda6e
+! RED
+*.color1: #d370a3
+*.color9: #ffa7da
 
-! yellow
-*.color3:       #e4b226
-*.color11:      #ebcf1a
+! GRN
+*.color2: #6d9e3f
+*.color10: #a3d572
 
-! blue
-*.color4:       #4457b3
-*.color12:      #5890c5
+! YEL
+*.color3: #b58858
+*.color11: #efbd8b
 
-! magenta
-*.color5:       #903a62
-*.color13:      #9568a1
+! BLU
+*.color4: #6095c5
+*.color12: #98cbfe
 
-! cyan
-*.color6:       #7aa1dc
-*.color14:      #abbcda
+! MAG
+*.color5: #ac7bde
+*.color13: #e5b0ff
 
-! white
-*.color7:       #c4b7c5
-*.color15:      #ffeefc
+! CYN
+*.color6: #3ba275
+*.color14: #75daa9
+
+! WHT
+*.color7: #a0a0a0
+*.color15: #ffffff
 
 ! === uxrvt ===
-URxvt.depth: 32
-URxvt*lineSpace: 1
-URxvt.letterSpace: -1
-URxvt.scrollBar: false
-URxvt.internalBorder: 10
-URxvt.transparent: true
-URxvt.shading: 20
-URxvt*loginShell: true
-URxvt.geometry: 80x20
 
+URxvt.depth: 32
+URxvt.lineSpace: 1
+URxvt.letterSpace: -1
+URxvt.internalBorder: 10
+URxvt.scrollBar: false
+URxvt.loginShell: true
+URxvt.geometry: 80x20
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.perl-ext: default,matcher
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.url-launcher: firefox
+URxvt.url-launcher: xdg-open
 URxvt.matcher.button: 1
