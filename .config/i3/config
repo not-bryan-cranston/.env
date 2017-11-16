@@ -1,4 +1,4 @@
-set $mod Mod1
+set $mod Mod4
 
 # standard keybindings
 ###########################################################
@@ -117,8 +117,8 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse no
 
 # gaps
-gaps inner 20
-gaps outer 50
+gaps inner 0
+gaps outer 0
 smart_gaps on
 
 # colors
@@ -146,6 +146,9 @@ client.placeholder      $blk   $blk       $wht $blk      $blk
 bindsym $mod+Shift+x floating toggle
 bindsym $mod+x focus mode_toggle
 
+bindsym Print exec scrot -e 'mv $f $HOME/downloads/'
+bindsym --release $mod+Print exec scrot -s -e 'mv $f $HOME/downloads/'
+
 bindsym XF86AudioMute exec "amixer set Master toggle"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
@@ -168,11 +171,13 @@ bindsym $mod+Shift+space exec "rofi -show drun"
 
 # lock screen
 exec --no-startup-id xautolock -time 10 -locker "$HOME/.config/i3/lock.sh"
+exec --no-startup-id "$HOME/.config/i3/lights_on.sh 290"
+
 bindsym $mod+Control+l exec "$HOME/.config/i3/lock.sh"
-bindsym $mod+Mod4+z exec "$HOME/.config/i3/lock.sh"
+bindsym $mod+Mod1+z exec "$HOME/.config/i3/lock.sh"
 bindsym XF86ScreenSaver exec "$HOME/.config/i3/lock.sh"
 
 # startup execs
 exec_always --no-startup-id "$HOME/.config/feh/fehbg.sh"
-exec --no-startup-id "compton -CG"
+exec --no-startup-id compton -CG
 exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
