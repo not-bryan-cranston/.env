@@ -6,7 +6,7 @@ rofi.hide-scrollbar: true
 rofi.lines: 10
 
 rofi.color-enabled: true
-rofi.color-window: #111111, #6095c5, #98cbfe
+rofi.color-window: #111111, #6095c5, #6095c5
 rofi.color-normal: #111111, #a0a0a0, #111111, #6095c5, #ffffff
 rofi.color-active: #111111, #a0a0a0, #111111, #6095c5, #ffffff
 rofi.color-urgent: #111111, #a0a0a0, #111111, #6095c5, #ffffff
