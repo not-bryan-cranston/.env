@@ -116,11 +116,6 @@ bindsym $mod+r mode "resize"
 # behavior
 focus_follows_mouse no
 
-# gaps
-gaps inner 0
-gaps outer 0
-smart_gaps on
-
 # colors
 set_from_resource $blk .color0 #000000
 set_from_resource $red .color1 #ff0000
@@ -131,34 +126,36 @@ set_from_resource $mag .color5 #ff00ff
 set_from_resource $cyn .color6 #00ffff
 set_from_resource $wht .color7 #ffffff
 
+set_from_resource $gry .color8 #888888
+
 # appearance
 new_window pixel 2
 hide_edge_borders smart
 
 #                       border background text indicator child border
 client.focused          $mag   $blk       $wht $mag      $mag
-client.focused_inactive $blk   $blk       $wht $blk      $blk
-client.unfocused        $blk   $blk       $wht $blk      $blk
-client.urgent           $blk   $blk       $wht $blk      $blk
-client.placeholder      $blk   $blk       $wht $blk      $blk
+client.focused_inactive $gry   $blk       $wht $gry      $gry
+client.unfocused        $gry   $blk       $wht $gry      $gry
+client.urgent           $red   $blk       $wht $red      $red
+client.placeholder      $gry   $blk       $wht $gry      $gry
 
-# keybindings
+# control keybindings
 bindsym $mod+Shift+x floating toggle
 bindsym $mod+x focus mode_toggle
 
-bindsym Print exec scrot -e 'mv $f $HOME/downloads/'
-bindsym --release $mod+Print exec scrot -s -e 'mv $f $HOME/downloads/'
+bindsym $mod+p exec --no-startup-id scrot -e 'mv $f '"$HOME/downloads/"
+bindsym --release $mod+Shift+p exec --no-startup-id scrot -s -e 'mv $f '"$HOME/downloads/"
 
-bindsym XF86AudioMute exec "amixer set Master toggle"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
+bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%-"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+"
 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
 
-bindsym Control+Down exec "mpc toggle"
-bindsym Control+Left exec "mpc prev"
-bindsym Control+Right exec "mpc next"
+bindsym Control+Down exec --no-startup-id "mpc toggle"
+bindsym Control+Left exec --no-startup-id "mpc prev"
+bindsym Control+Right exec --no-startup-id "mpc next"
 
 # program keybindings
 for_window [class="URxvt" instance="floating"] floating enable
@@ -170,12 +167,12 @@ bindsym $mod+space exec "rofi -show run"
 bindsym $mod+Shift+space exec "rofi -show drun"
 
 # lock screen
-exec --no-startup-id xautolock -time 10 -locker "$HOME/.config/i3/lock.sh"
+exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/lock.sh"
 exec --no-startup-id "$HOME/.config/i3/lights_on.sh 290"
 
-bindsym $mod+Control+l exec "$HOME/.config/i3/lock.sh"
-bindsym $mod+Mod1+z exec "$HOME/.config/i3/lock.sh"
-bindsym XF86ScreenSaver exec "$HOME/.config/i3/lock.sh"
+bindsym $mod+Control+l exec --no-startup-id "$HOME/.config/i3/lock.sh"
+bindsym $mod+Mod1+z exec --no-startup-id "$HOME/.config/i3/lock.sh"
+bindsym XF86ScreenSaver exec --no-startup-id "$HOME/.config/i3/lock.sh"
 
 # startup execs
 exec_always --no-startup-id "$HOME/.config/feh/fehbg.sh"
