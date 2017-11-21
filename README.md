@@ -1,10 +1,10 @@
-# dotfiles
+# env
 
-my arch setup. a work in progress
+my linux setup. at home, this is arch. a work in progress
 
-* WM: i3-gaps
+* wm: i3-gaps
 * terminal: urxvt
 * bar: polybar
 * lock: i3lock
 * composite manager: compton
-* application switcher: rofi
+* app switcher: rofi
