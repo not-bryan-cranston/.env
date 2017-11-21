@@ -3,7 +3,7 @@
 display_regex="([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)"
 image_regex="([0-9]+)x([0-9]+)"
 
-img="$HOME/.config/i3/lock.png"
+img="$HOME/.env/i3/lock.png"
 lockbg='/tmp/i3lock.png'
 
 (( $# )) && { img=$1; }

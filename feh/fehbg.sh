@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-feh --no-fehbg --bg-scale "$HOME/.config/feh/outrun.jpg"
+feh --no-fehbg --bg-scale "$HOME/.env/feh/outrun.jpg"

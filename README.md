@@ -8,3 +8,13 @@ my linux setup. at home, this is arch. a work in progress
 * lock: i3lock
 * composite manager: compton
 * app switcher: rofi
+
+### installation
+
+```shell
+cd ~
+git clone https://github.com/avanpo/.env.git
+./.env/setup.sh
+```
+
+installing to `~/.env` is required, all configs assume this to be the location of scripts and various media.

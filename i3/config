@@ -167,14 +167,14 @@ bindsym $mod+space exec "rofi -show run"
 bindsym $mod+Shift+space exec "rofi -show drun"
 
 # lock screen
-exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/lock.sh"
-exec --no-startup-id "$HOME/.config/i3/lights_on.sh 290"
+exec --no-startup-id xautolock -time 15 -locker "$HOME/.env/i3/lock.sh"
+exec --no-startup-id "$HOME/.env/i3/lights_on.sh 290"
 
-bindsym $mod+Control+l exec --no-startup-id "$HOME/.config/i3/lock.sh"
-bindsym $mod+Mod1+z exec --no-startup-id "$HOME/.config/i3/lock.sh"
-bindsym XF86ScreenSaver exec --no-startup-id "$HOME/.config/i3/lock.sh"
+bindsym $mod+Control+l exec --no-startup-id "$HOME/.env/i3/lock.sh"
+bindsym $mod+Mod1+z exec --no-startup-id "$HOME/.env/i3/lock.sh"
+bindsym XF86ScreenSaver exec --no-startup-id "$HOME/.env/i3/lock.sh"
 
 # startup execs
-exec_always --no-startup-id "$HOME/.config/feh/fehbg.sh"
+exec_always --no-startup-id "$HOME/.env/feh/fehbg.sh"
 exec --no-startup-id compton -CG
-exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+exec_always --no-startup-id "$HOME/.env/polybar/launch.sh"
