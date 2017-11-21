@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 display_regex="([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)"
 image_regex="([0-9]+)x([0-9]+)"
