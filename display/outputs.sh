@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Automatically detects external monitors and places them to the right of
+# the laptop screen.
+
 laptop=eDP1
 external=
 

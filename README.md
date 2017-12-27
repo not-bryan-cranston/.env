@@ -8,6 +8,7 @@ my linux setup. at home, this is arch. a work in progress
 * lock: i3lock
 * composite manager: compton
 * app switcher: rofi
+* pdf viewer: zathura
 * screenshots: scrot
 
 ### installation
