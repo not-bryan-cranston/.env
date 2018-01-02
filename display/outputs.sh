@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Exit if not a laptop setup.
+
+if [ "$SETUP" != "laptop" ]; then
+	exit 0
+fi
+
 # Automatically detects external monitors and places them to the right of
 # the laptop screen.
 
@@ -8,7 +14,7 @@ external=
 
 while true
 do
-	current="$(xrandr | grep ' connected' | grep -v eDP1 | awk '{print $1;}')"
+	current="$(xrandr | grep ' connected' | grep -v "$laptop" | awk '{print $1;}')"
 
 	if [ -z "$current" ] && [ ! -z "$external" ]; then
 		# external monitor disconnected

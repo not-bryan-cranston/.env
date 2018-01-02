@@ -17,10 +17,11 @@ PS1='\u@\h \W\$ '
 
 alias ls='ls --color=auto'
 alias l='ls -lah'
-alias la='ls -lah'
+alias la='ls -a'
 
 alias less='less --color=auto'
 alias grep='grep --color=auto'
+alias psg='ps | grep'
 
 alias ..='cd ..'
 alias ...='cd ../..'

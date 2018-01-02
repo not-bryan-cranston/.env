@@ -50,12 +50,12 @@ pin-workspaces = true
 index-sort = true
 wrapping-scroll = false
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-default = 
+#ws-icon-0 = 1;
+#ws-icon-1 = 2;
+#ws-icon-2 = 3;
+#ws-icon-3 = 4;
+#ws-icon-4 = 5;
+#ws-icon-default = 
 
 format = <label-state> <label-mode>
 
@@ -132,7 +132,7 @@ label-foreground = ${colors.text}
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = ${env:WIRELESS_INTERFACE:}
 interval = 3.0
 
 format-connected =  <label-connected>
@@ -153,7 +153,7 @@ label-disconnected-foreground = ${colors.text}
 
 [module/eth]
 type = internal/network
-interface = eth1
+interface = ${env:WIRED_INTERFACE:}
 interval = 3.0
 
 format-connected-prefix = " "
