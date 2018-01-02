@@ -10,6 +10,7 @@ mkdir -p .config/zathura
 
 # setup symlinks
 ln -s .env/.bash_profile .bash_profile
+ln -s .env/bashrc .bashrc
 
 ln -s .env/.Xresources .Xresources
 ln -s .env/i3/config .config/i3/config

@@ -20,3 +20,15 @@ git clone https://github.com/avanpo/.env.git
 ```
 
 installing to `~/.env` is required, all configs assume this to be the location of scripts and various media.
+
+### configuration
+
+some configuration is necessary, since hardware and setups differ. any machine specific configuration can go in a file located at `~/.config/bashrc`.
+
+this file should contain the following environment variables:
+
+```
+export SETUP=laptop
+export WIRELESS_INTERFACE=wlan0
+export WIRED_INTERFACE=eth0
+```
