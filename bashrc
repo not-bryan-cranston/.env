@@ -2,6 +2,8 @@
 
 # settings
 
+export HISTCONTROL=ignoreboth
+
 set -o vi
 export EDITOR='vi'
 export VISUAL='vi'
@@ -19,9 +21,10 @@ alias ls='ls --color=auto'
 alias l='ls -lah'
 alias la='ls -a'
 
-alias less='less --color=auto'
 alias grep='grep --color=auto'
+alias ps='ps -efjH'
 alias psg='ps | grep'
+alias c='xclip -selection clipboard'
 
 alias ..='cd ..'
 alias ...='cd ../..'
