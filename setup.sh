@@ -12,6 +12,8 @@ mkdir -p .config/zathura
 ln -s .env/bash_profile .bash_profile
 ln -s .env/bashrc .bashrc
 
+ln -s .env/vimrc .vimrc
+
 ln -s .env/Xresources .Xresources
 ln -s .env/i3/config .config/i3/config
 ln -s .env/polybar/config .config/polybar/config
