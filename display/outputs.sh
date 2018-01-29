@@ -1,13 +1,13 @@
 #!/bin/bash
+#
+# Automatically detects external monitors and places them to the right of
+# the laptop screen.
+#
 
 # Exit if not a laptop setup.
-
 if [ "$SETUP" != "laptop" ]; then
 	exit 0
 fi
-
-# Automatically detects external monitors and places them to the right of
-# the laptop screen.
 
 laptop=eDP1
 external=
