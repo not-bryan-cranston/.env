@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# Change timezone. Takes one argument, which specifies the timezone.
+#
+
+# Exit if not run as root.
+if [ "$EUID" -ne 0 ]; then
+	echo "Must be run as root." 1>&2
+	exit 1
+fi
+
+# Exit if no arg given.
+if [ -z "$1" ]; then
+	echo "Must supply timezone as argument."
+	exit 1
+fi
+
+results="$(timedatectl list-timezones | grep $1)"
+num_results="$(echo -n "$results" | grep -c '^')"
+
+if [ $num_results -eq 1 ]; then
+	timedatectl set-timezone "$results"
+elif [ $num_results -eq 0 ]; then
+	echo "No timezones matched your search."
+else
+	echo "Please rerun with one of the following timezones:"
+	echo "$results"
+fi
