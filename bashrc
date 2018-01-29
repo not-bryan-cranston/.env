@@ -12,6 +12,7 @@ export PAGER="less -RS"
 export LESSHISTFILE=/dev/null
 
 # PS1
+
 RST="\[\e[m\]"
 BOLD="\[\e[1m\]"
 GRN="\[\e[32m\]"
@@ -39,6 +40,10 @@ alias ...='cd ../..'
 alias vi='vim'
 alias o='xdg-open'
 
+# vars
+
+WIRELESS_INTERFACE="$(iw dev | grep Interface | cut -d ' ' -f 2)"
+
 # source machine specific config
 
-. ~/.config/bashrc
+. $HOME/.config/bashrc
