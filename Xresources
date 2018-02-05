@@ -45,18 +45,28 @@
 
 ! === uxrvt ===
 
+! general
+URxvt.loginShell: true
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! appearance
 URxvt.depth: 32
 URxvt.lineSpace: 1
 URxvt.letterSpace: -1
 URxvt.internalBorder: 10
 URxvt.scrollBar: false
-URxvt.loginShell: true
 URxvt.geometry: 80x20
-URxvt.iso14755: false
-URxvt.iso14755_52: false
 
+! behavior
+URxvt.saveLines: 65535
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+URxvt.url-launcher: xdg-open
+URxvt.matcher.button: 1
+
+! plugins
 URxvt.perl-ext: default,matcher
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.url-launcher: xdg-open
-URxvt.matcher.button: 1
