@@ -40,6 +40,9 @@ alias ...='cd ../..'
 alias vi='vim'
 alias o='xdg-open'
 
+alias diskspace='df -h'
+alias dirspace='du -sh *'
+
 # functions
 
 # SYNOPSIS
