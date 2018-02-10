@@ -6,20 +6,19 @@
 
 # Exit if no root backup directory given.
 if [ -z $1 ] || [ ! -d "$1" ]; then
-	echo "No root backup directory given, or directory does not exist."
-	exit 0
+	echo "No root backup directory given, or directory does not exist." 1>&2
+	exit 1
 fi
 
 backup_root=$1
 
 # Exit if there is nothing to do.
 if [ -z "$BACKUP_DIRS" ]; then
-	echo "No directories to backup. Please set \$BACKUP_DIRS with space separated directories."
-	exit 0
+	echo "No directories to backup. Please set \$BACKUP_DIRS with space separated directories." 1>&2
+	exit 1
 fi
 
 RED="\033[31m"
-GRN="\033[32m"
 RST="\033[m"
 
 for dir in $BACKUP_DIRS; do

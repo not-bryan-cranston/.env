@@ -11,7 +11,7 @@ fi
 
 # Exit if no arg given.
 if [ -z "$1" ]; then
-	echo "Must supply timezone as argument."
+	echo "Must supply timezone as argument." 1>&2
 	exit 1
 fi
 

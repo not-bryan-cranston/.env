@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+#
+# Backup dropbox pictures in $DROPBOX_PHOTOS_DIR to location given by
+# $DROPBOX_PHOTOS_BACKUP_DIR. Also delete pictures older than 90 days.
+#
+
+# Exit if directories do not exist.
+if [ -z "$DROPBOX_PHOTOS_DIR" ] || [ ! -d "$DROPBOX_PHOTOS_DIR" ]; then
+	echo "Dropbox photos dir $DROPBOX_PHOTOS_DIR not found." 1>&2
+	exit 1
+elif [ -z "$DROPBOX_PHOTOS_BACKUP_DIR" ] || [ ! -d "$DROPBOX_PHOTOS_BACKUP_DIR" ]; then
+	echo "Dropbox photos backup dir $DROPBOX_PHOTOS_BACKUP_DIR not found." 1>&2
+	exit 1
+fi
+
+RED="\033[31m"
+RST="\033[m"
+
+src="$DROPBOX_PHOTOS_DIR"
+dest="$DROPBOX_PHOTOS_BACKUP_DIR"
+
+rm_date=$(date --date='-90 days' +%s)
+
+pattern='^([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2})\.([0-9]{2})\.([0-9]{2})\.(.+)$'
+
+count_cp=0
+count_rm=0
+
+for path in "$src"/*; do
+	file=$(basename "$path")
+
+	if [[ $file =~ $pattern ]]; then
+		# Need two ignored variables, since BASH_REMATCH[1] is the
+		# entire filename, and the filename contains a space.
+		read -r _ _ Y m d H M S filetype <<< "${BASH_REMATCH[@]}"
+
+		# Make dir if it doesn't exist, and copy file.
+		mkdir -p "${dest}/${Y}-${m}"
+		n=$(rsync -au "${src}/${file}" "${dest}/${Y}-${m}/${Y}${m}${d}_${H}${M}${S}.${filetype}" | grep "Number of created files" | cut -d ':' -f 2 | xargs)
+		count_cp=$((count_cp + n))
+
+		# Delete file if it is older than 90 days.
+		file_date=$(date --date="$Y-$m-$d $H:$M:$S" +%s)
+		if [ $file_date -lt $rm_date ]; then
+			rm "${src}/${file}"
+			count_rm=$((count_rm + 1))
+		fi
+	else
+		echo -e "=> ${RED}WARNING${RST}: $file not backed up due to unknown format."
+	fi
+done
+
+echo "Files copied: $count_cp"
+echo "Files deleted: $count_rm"
