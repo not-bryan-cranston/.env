@@ -36,7 +36,7 @@ for path in "$src"/*; do
 
 		# Make dir if it doesn't exist, and copy file.
 		mkdir -p "${dest}/${Y}-${m}"
-		n=$(rsync -au "${src}/${file}" "${dest}/${Y}-${m}/${Y}${m}${d}_${H}${M}${S}.${filetype}" | grep "Number of created files" | cut -d ':' -f 2 | xargs)
+		n=$(rsync -au --stats "${src}/${file}" "${dest}/${Y}-${m}/${Y}${m}${d}_${H}${M}${S}.${filetype}" | grep "Number of regular files transferred" | cut -d ':' -f 2 | xargs)
 		count_cp=$((count_cp + n))
 
 		# Delete file if it is older than 90 days.
