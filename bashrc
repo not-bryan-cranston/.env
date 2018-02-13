@@ -30,6 +30,7 @@ alias l='ls -lah'
 alias la='ls -a'
 alias ll='l --color=always | less'
 
+alias q='exit'
 alias ps='ps -efjH'
 alias psg='ps | grep'
 alias c='xclip -selection clipboard'
@@ -39,11 +40,36 @@ alias ...='cd ../..'
 
 alias vi='vim'
 alias o='xdg-open'
+alias vpn='sudo openvpn --config ~/.config/client.ovpn'
 
 alias diskspace='df -h'
 alias dirspace='du -sh *'
 
 # functions
+
+# DESCRIPTION
+#   Get directory information. Does not include hidden directories or files,
+#   but could easily be modified to do so by setting GLOBIGNORE.
+dirinfo() {
+	df -h . | sed -n 2p | awk '{print "Partition usage:", $3, "of", $2}'
+	len=$(ls -a | awk '{print length}' | sort -rn | head -1)
+
+	dir_space=$(du -sh . | awk '{print $1}')
+	dir_files=$(find . -type f -printf '\n' | wc -l)
+	printf "%-5s \033[34;1m%-${len}s\033[0m  %d\n" "$dir_space" "." "$dir_files"
+
+	for path in *; do
+		name=$(basename "$path")
+		if [ -d "$path" ]; then
+			space=$(du -sh "$path" | awk '{print $1}')
+			num_files=$(find  "$path" -type f -printf '\n' | wc -l)
+			printf "%-5s \033[34;1m%-${len}s\033[0m  %d\n" "$space" "$name" "$num_files"
+		else
+			space=$(stat --printf="%s\n" "$path" | numfmt --to=si)
+			printf "%-5s %-${len}s\n" "$space" "$name"
+		fi
+	done
+}
 
 # SYNOPSIS
 #   manopt command opt
