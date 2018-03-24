@@ -1,16 +1,20 @@
 " basic settings
 """"""""""""""""
 set nocompatible                       " enable non-vi modern features
+set autoread                           " automatically read external changes
+
+" behavior
+""""""""""""""""
 set clipboard=unnamedplus              " use system clipboard
 set wildmenu                           " enhanced cli completion
-set autoread                           " automatically read external changes
+set wildmode=longest:full,full         " complete longest on tab, full on 2nd
 
 " appearance
 """"""""""""""""
-set laststatus=2                       " always show status bar
-set ruler                              " show cursor line/col values
-set number                             " show line numbers
 set colorcolumn=80                     " show 80 char col limit
+set laststatus=2                       " always show status bar
+set number                             " show line numbers
+set ruler                              " show cursor line/col values
 
 set scrolloff=1                        " show next 1 line when scrolling
 set sidescrolloff=5                    " show next 5 cols when scrolling

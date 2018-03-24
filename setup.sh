@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# install software
+
+# tools
+pacman -S nmap gdb
+
 # create folders
-cd ~
 mkdir -p downloads
 mkdir -p .config/i3
 mkdir -p .config/polybar
@@ -13,6 +17,8 @@ ln -s .env/bash_profile .bash_profile
 ln -s .env/bashrc .bashrc
 
 ln -s .env/vimrc .vimrc
+
+ln -s .env/gdbinit .gdbinit
 
 ln -s .env/Xresources .Xresources
 
