@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# install software
+# install gui software
+sudo pacman -S i3
 
-# tools
-pacman -S nmap gdb
+# install tools
+sudo pacman -S nmap gdb
 
 # create folders
 mkdir -p downloads
@@ -27,6 +28,3 @@ ln -s .env/i3/config .config/i3/config
 ln -s .env/polybar/config .config/polybar/config
 ln -s .env/rofi/config .config/rofi/config
 ln -s .env/zathura/zathurarc .config/zathura/zathurarc
-
-# add scripts to bin
-ln -s $HOME/.env/bin/* /usr/local/bin/.

@@ -11,6 +11,10 @@ export VISUAL='vi'
 export PAGER="less -RS"
 export LESSHISTFILE=/dev/null
 
+# path
+
+export PATH="$PATH:~/.env/bin"
+
 # PS1
 
 RST="\[\e[m\]"

@@ -17,14 +17,14 @@ feh (bg image), compton (composite manager), zathura (pdf viewer), imagemagick (
 ```shell
 cd ~
 git clone https://github.com/avanpo/.env.git
-sudo ./.env/setup.sh
+./.env/setup.sh
 ```
 
 installing to `~/.env` is required, all configs assume this to be the location of scripts and various media.
 
 ### configuration
 
-all configuration custom to a machine should go into a file located at `~/.config/bashrc`.
+all configuration custom to a machine should go into a file located at `~/.config/bashrc`. this file is sourced at the end of `~/.bashrc`.
 
 at minimum, this file should contain the following environment variable:
 
