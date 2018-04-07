@@ -23,14 +23,15 @@ mkdir -p .config/rofi
 mkdir -p .config/zathura
 
 # link dotfiles
+ln -s ~/.env/xsession .xsession
+ln -s ~/.env/Xresources .Xresources
+
 ln -s ~/.env/bash_profile .bash_profile
 ln -s ~/.env/bashrc .bashrc
 
 ln -s ~/.env/vimrc .vimrc
 
 ln -s ~/.env/gdbinit .gdbinit
-
-ln -s ~/.env/Xresources .Xresources
 
 # link various configs
 ln -s ~/.env/i3/config .config/i3/config
