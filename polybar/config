@@ -29,9 +29,8 @@ foreground = ${colors.text}
 
 line-size = 0
 
-#font-0 = xos4 terminus:size=16;2
-font-0 = FontAwesome 5 Free:style=Regular:pixelsize=11;2
-font-1 = FontAwesome 5 Free:style=Solid:pixelsize=11;2
+font-0 = FontAwesome 5 Free:style=Regular:pixelsize=11;3
+font-1 = FontAwesome 5 Free:style=Solid:pixelsize=11;3
 font-2 = FontAwesome:pixelsize=11;3
 
 modules-left = i3

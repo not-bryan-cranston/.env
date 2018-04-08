@@ -65,6 +65,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+# cycle workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -179,5 +183,5 @@ exec --no-startup-id "$HOME/.env/display/lights_on.sh 590"
 
 # startup execs
 exec_always --no-startup-id "$HOME/.env/feh/fehbg.sh"
-#exec --no-startup-id compton -CG
+exec --no-startup-id compton -CG
 exec_always --no-startup-id "$HOME/.env/polybar/launch.sh"
