@@ -1,15 +1,10 @@
 [colors]
-background = #00000000
+bg = ${xrdb:bar-bg:#000}
+bg-active = ${xrdb:bar-bg-active:#666}
 text = ${xrdb:color5:#f0f}
 icon = ${xrdb:color5:#f0f}
 active = ${xrdb:color15:#fff}
 alert = ${xrdb:color1:#f00}
-
-bg0 = ${colors.background}
-bg1 = ${colors.bg0}
-bg2 = ${colors.bg0}
-bg3 = ${colors.bg0}
-bg4 = ${colors.bg0}
 
 [settings]
 throttle-output = 5
@@ -24,14 +19,15 @@ width = 100%
 height = 35
 fixed-center = true
 
-background = ${colors.bg0}
+background = ${colors.bg}
 foreground = ${colors.text}
 
 line-size = 0
 
-font-0 = FontAwesome 5 Free:style=Regular:pixelsize=11;3
-font-1 = FontAwesome 5 Free:style=Solid:pixelsize=11;3
-font-2 = FontAwesome:pixelsize=11;3
+font-0 = DejaVu Sans Mono:pixelsize=12;3
+font-1 = FontAwesome 5 Free:style=Regular:pixelsize=11;3
+font-2 = FontAwesome 5 Free:style=Solid:pixelsize=11;3
+font-3 = FontAwesome:pixelsize=11;3
 
 modules-left = i3
 modules-center = weather
@@ -44,38 +40,30 @@ type = internal/i3
 pin-workspaces = true
 index-sort = true
 
-#ws-icon-0 = 1;
-#ws-icon-1 = 2;
-#ws-icon-2 = 3;
-#ws-icon-3 = 4;
-#ws-icon-4 = 5;
-#ws-icon-default = 
-
 format = <label-state> <label-mode>
 
 label-mode = %mode%
 label-mode-foreground = ${colors.text}
-label-mode-background = ${colors.bg0}
 label-mode-padding = 1
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = ${colors.active}
-label-focused-background = ${colors.text}
-label-focused-padding = 2
+label-focused-background = ${colors.bg-active}
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-padding = 2
+label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-foreground = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 [module/weather]
 type = custom/script
@@ -99,12 +87,11 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = " <label>   "
+format = " <label>  "
 label = %percentage%%
 
-format-background = ${colors.bg1}
 format-foreground = ${colors.icon}
-format-padding = 3
+format-padding = 2
 
 label-foreground = ${colors.text}
 
@@ -112,23 +99,21 @@ label-foreground = ${colors.text}
 type = internal/cpu
 interval = 2
 
-format = " <label> / "
+format = " <label>/"
 label = %percentage%%
 
 format-foreground = ${colors.icon}
 label-foreground = ${colors.text}
-format-background = ${colors.bg2}
 format-padding = 0
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-format = "<label>   "
+format = "<label>  "
 label = %gb_used%
 
 label-foreground = ${colors.text}
-format-background = ${colors.bg2}
 format-padding = 0
 
 [module/wlan]
@@ -144,13 +129,11 @@ label-disconnected = 0%
 
 format-connected-foreground = ${colors.icon}
 label-connected-foreground = ${colors.text}
-format-connected-background = ${colors.bg3}
-format-connected-padding = 3
+format-connected-padding = 2
 
 format-disconnected-foreground = ${colors.icon}
 label-disconnected-foreground = ${colors.text}
-format-disconnected-background = ${colors.bg3}
-format-disconnected-padding = 3
+format-disconnected-padding = 2
 
 [module/eth]
 type = internal/network
@@ -175,9 +158,8 @@ time = %H:%M
 format =  <label>
 label = %date% %time%
 
-format-background = ${colors.bg4}
 format-foreground = ${colors.icon}
-format-padding = 3
+format-padding = 2
 
 label-foreground = ${colors.text}
 
@@ -189,11 +171,9 @@ format-muted =   m
 
 label-volume = %percentage%%
 
-format-volume-background = ${colors.bg1}
-format-volume-padding = 3
-format-muted-background = ${colors.bg1}
+format-volume-padding = 2
 format-muted-foreground = ${colors.icon}
-format-muted-padding = 3
+format-muted-padding = 2
 
 ramp-volume-foreground = ${colors.icon}
 ramp-volume-0 = 
@@ -214,12 +194,9 @@ format-charging = <animation-charging> <label-charging>
 format-full = <ramp-capacity> <label-full>
 format-discharging = <ramp-capacity> <label-discharging>
 
-format-charging-background = ${colors.bg3}
-format-charging-padding = 3
-format-full-background = ${colors.bg3}
-format-full-padding = 3
-format-discharging-background = ${colors.bg3}
-format-discharging-padding = 3
+format-charging-padding = 2
+format-full-padding = 2
+format-discharging-padding = 2
 
 ramp-capacity-foreground = ${colors.icon}
 ramp-capacity-0 = 
@@ -245,10 +222,8 @@ warn-temperature = 60
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 
-format-background = ${colors.bg2}
-format-padding = 3
-format-warn-background = ${colors.bg2}
-format-warn-padding = 3
+format-padding = 2
+format-warn-padding = 2
 
 label = %temperature%
 label-warn = %temperature%

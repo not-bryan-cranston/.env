@@ -13,7 +13,7 @@
 
 ! BLK
 *.color0: #111111
-*.color8: #686868
+*.color8: #333333
 
 ! RED
 *.color1: #d370a3
@@ -42,6 +42,10 @@
 ! WHT
 *.color7: #a0a0a0
 *.color15: #ffffff
+
+! bar backgrounds
+*.bar-bg: #99000000
+*.bar-bg-active: #66ac7bde
 
 ! === uxrvt ===
 

@@ -36,4 +36,4 @@ elif main == 'Clouds':
 info = description.capitalize()
 temp = int(float(weather['main']['temp']) - 272.15)
 
-print('%s %s, %i °C' % (icon, main, temp))
+print('%s %s, %i°C' % (icon, main, temp))
