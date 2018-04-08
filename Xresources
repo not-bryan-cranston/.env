@@ -45,7 +45,7 @@
 
 ! bar backgrounds
 *.bar-bg: #99000000
-*.bar-bg-active: #66ac7bde
+*.bar-bg-active: #55ac7bde
 
 ! === uxrvt ===
 
