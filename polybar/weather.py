@@ -1,13 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import json
 import os
+import sys
 import urllib.request
 
-city = os.environ['OPENWEATHERMAP_LOCATION']
-api_key = os.environ['OPENWEATHERMAP_API_KEY']
+city = os.getenv('OPENWEATHERMAP_LOCATION', '')
+api_key = os.getenv('OPENWEATHERMAP_API_KEY', '')
 
-weather = eval(str(urllib.request.urlopen('https://api.openweathermap.org/data/2.5/weather?q={}&APPID={}'.format(city, api_key)).read())[2:-1])
+try:
+    weather = eval(str(urllib.request.urlopen('https://api.openweathermap.org/data/2.5/weather?q={}&APPID={}'.format(city, api_key)).read())[2:-1])
+except urllib.error.URLError:
+    sys.exit(0)
 
 currWeather = weather['weather'][0]
 
