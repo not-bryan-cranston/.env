@@ -183,5 +183,5 @@ exec --no-startup-id "$HOME/.env/display/lights_on.sh 590"
 
 # startup execs
 exec_always --no-startup-id "$HOME/.env/feh/fehbg.sh"
-exec --no-startup-id compton -CG
+exec --no-startup-id compton --config "$HOME/.env/compton/config"
 exec_always --no-startup-id "$HOME/.env/polybar/launch.sh"
