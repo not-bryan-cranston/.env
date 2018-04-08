@@ -35,6 +35,7 @@ ln -s ~/.env/gdbinit .gdbinit
 
 # link various configs
 ln -s ~/.env/i3/config .config/i3/config
+ln -s ~/.env/gtk-3.0/settings.ini .config/gtk-3.0/settings.ini
 ln -s ~/.env/polybar/config .config/polybar/config
 ln -s ~/.env/rofi/config .config/rofi/config
 ln -s ~/.env/zathura/zathurarc .config/zathura/zathurarc
