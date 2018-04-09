@@ -23,6 +23,7 @@ mkdir -p .config/rofi
 mkdir -p .config/zathura
 
 # link dotfiles
+ln -s ~/.env/xinitrc .xinitrc
 ln -s ~/.env/xsession .xsession
 ln -s ~/.env/Xresources .Xresources
 
