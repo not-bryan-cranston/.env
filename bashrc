@@ -5,8 +5,8 @@
 export HISTCONTROL=ignoreboth
 
 set -o vi
-export EDITOR='vi'
-export VISUAL='vi'
+export EDITOR='vim'
+export VISUAL='vim'
 
 export PAGER="less -RS"
 export LESSHISTFILE=/dev/null
