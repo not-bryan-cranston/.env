@@ -50,7 +50,7 @@
 ! === uxrvt ===
 
 ! general
-URxvt.loginShell: true
+URxvt.loginShell: false
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
