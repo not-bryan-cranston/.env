@@ -19,6 +19,9 @@ fi
 xset -b
 xsetroot -solid "#000000"
 
+# set background
+$HOME/.env/feh/fehbg.sh
+
 # start urxvtd
 urxvtd -q -f -o
 

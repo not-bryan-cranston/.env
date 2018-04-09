@@ -31,3 +31,11 @@ at minimum, this file should contain the following environment variable:
 ```
 export SETUP=laptop
 ```
+
+optional vars:
+
+```
+# for the polybar weather script
+export OPENWEATHERMAP_LOCATION=city
+export OPENWEATHERMAP_API_KEY=key
+```
