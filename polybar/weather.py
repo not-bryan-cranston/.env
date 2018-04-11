@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+#
+# Outputs an icon with the weather and temperature in Celsius.
+#
+# Since it is designed for a status bar, it fails silently without output. This
+# way the bar is not populated with an ugly error message.
 
 import json
 import os
@@ -16,26 +21,28 @@ except urllib.error.URLError:
 currWeather = weather['weather'][0]
 
 main = currWeather['main']
-description = currWeather['description']
 
-icon = ''  # cloud
+icons = {
+        'bars': '',
+        'bolt': '',
+        'cloud': '',
+        'droplet': '',
+        'snowflake': '',
+        'sun': '',
+}
 
-if main == 'Drizzle':
-    icon = ''  # droplet
-elif main == 'Rain':
-    icon = ''  # droplet
-elif main == 'Mist':
-    icon = ''  # bars
-elif main == 'Thunderstorm':
-    icon = ''  # bolt
-elif main == 'Snow':
-    icon = ''  # snowflake
-elif main == 'Clear':
-    icon = ''  # sun
-elif main == 'Clouds':
-    icon = ''  # cloud
+weather_to_icon_map = {
+        'Clear': 'sun',
+        'Clouds': 'cloud',
+        'Snow': 'snowflake',
+        'Drizzle': 'droplet',
+        'Rain': 'droplet',
+        'Mist': 'bars',
+        'Haze': 'bars',
+        'Thunderstorm': 'bolt',
+}
 
-info = description.capitalize()
+icon = icons[weather_to_icon_map.get(main, 'cloud')]
 temp = int(float(weather['main']['temp']) - 272.15)
 
 print('%s %s, %i°C' % (icon, main, temp))
