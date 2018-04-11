@@ -18,20 +18,22 @@ currWeather = weather['weather'][0]
 main = currWeather['main']
 description = currWeather['description']
 
-icon = ''
+icon = ''  # cloud
 
 if main == 'Drizzle':
-  icon = ''
+    icon = ''  # droplet
 elif main == 'Rain':
-  icon = ''
+    icon = ''  # droplet
+elif main == 'Mist':
+    icon = ''  # bars
 elif main == 'Thunderstorm':
-  icon = ''
+    icon = ''  # bolt
 elif main == 'Snow':
-  icon = ''
+    icon = ''  # snowflake
 elif main == 'Clear':
-  icon = ''
+    icon = ''  # sun
 elif main == 'Clouds':
-  icon = ''
+    icon = ''  # cloud
 
 info = description.capitalize()
 temp = int(float(weather['main']['temp']) - 272.15)
