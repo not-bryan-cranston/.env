@@ -22,7 +22,12 @@ BOLD="\[\e[1m\]"
 GRN="\[\e[32m\]"
 BLUE="\[\e[34m\]"
 
-PS1=$BOLD$GRN'\u@\h'$RST':'$BOLD$BLUE'\w'$RST'\$ '
+HOST="\h"
+if [[ "$SSH_CLIENT" ]]; then
+	HOST=$BLUE$HOST
+fi
+
+PS1=$BOLD$GRN'\u@'$HOST$RST':'$BOLD$BLUE'\w'$RST'\$ '
 
 # aliases
 
