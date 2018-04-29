@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Toggle the VPN on and off.
+#
+# This script uses pkexec for permissions. It assumes OpenVPN. By default, the
+# client configuration lives at ~/.config/client.ovpn, but this can be changed
+# by setting OPENVPN_CONFIG_LOCATION.
+#
+
+config_path="$HOME/.config/client.ovpn"
+if [[ -n $OPENVPN_CONFIG_LOCATION ]]; then
+	config_path="$OPENVPN_CONFIG_LOCATION"
+fi
+
+sudo_wrapper=(urxvt -name floating -geometry 40x1 -e sudo -p "password: ")
+
+if ! pgrep -x openvpn > /dev/null; then
+	# VPN not running, start it.
+	"${sudo_wrapper[@]}" openvpn --config $config_path --daemon
+else
+	# VPN running, kill it.
+	"${sudo_wrapper[@]}" pkill openvpn
+fi

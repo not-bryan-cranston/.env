@@ -31,7 +31,7 @@ font-3 = FontAwesome:pixelsize=11;3
 
 modules-left = i3
 modules-center = weather
-modules-right = volume xbacklight cpu memory temperature wlan battery date
+modules-right = volume xbacklight cpu memory temperature wlan vpn battery date
 
 tray-position =
 
@@ -69,7 +69,15 @@ label-urgent-padding = 1
 type = custom/script
 interval = 15
 format = <label>
+label-padding = 2
 exec = ~/.env/polybar/weather.py
+
+[module/vpn]
+type = custom/script
+interval = 2
+format = <label>
+label-padding = 2
+exec = ~/.env/polybar/vpn.sh
 
 [module/mpd]
 type = internal/mpd
