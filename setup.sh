@@ -6,11 +6,16 @@ distro=$(cat /etc/os-release |& grep '^ID=' | cut -d '=' -f 2)
 # TODO: actually test this and add missing software
 if [ "$distro" = "arch" ]; then
 	# desktop environment
-	sudo pacman -S --noconfirm i3 rofi ranger zathura compton xautolock scrot ttf-dejavu ttf-font-awesome 
+	sudo pacman -S --noconfirm i3 rofi ranger zathura compton conky xautolock
+	sudo pacman -S --noconfirm scrot ttf-dejavu ttf-font-awesome
+
 	# tools
 	sudo pacman -S --noconfirm gvim git gdb ltrace strace rsync nmap traceroute
+	#sudo pacman -S --noconfirm avr-binutils avr-gcc avrdude avr-libc
+
 	# software
 	sudo pacman -S --noconfirm firefox keepassx2 irssi transmission openvpn
+
 	# media
 	sudo pacman -S --noconfirm mpd mpc ncmpcpp mpv gimp 
 fi

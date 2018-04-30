@@ -148,6 +148,9 @@ client.placeholder      $gry   $blk       $wht $gry      $gry
 bindsym $mod+Shift+x floating toggle
 bindsym $mod+x focus mode_toggle
 
+bindsym $mod+Delete exec --no-startup-id shutdown now
+bindsym $mod+Shift+Delete exec --no-startup-id reboot
+
 bindsym $mod+p exec --no-startup-id scrot -e 'mv $f '"$HOME/downloads/"
 bindsym --release $mod+Shift+p exec --no-startup-id scrot -s -e 'mv $f '"$HOME/downloads/"
 
