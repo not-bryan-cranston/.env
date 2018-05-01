@@ -6,6 +6,7 @@ set $mod Mod4
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+floating_minimum_size 10 x 10
 
 # kill focused window
 bindsym $mod+Shift+q kill
