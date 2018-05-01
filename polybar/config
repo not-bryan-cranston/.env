@@ -1,10 +1,11 @@
 [colors]
 bg = ${xrdb:bar-bg:#000}
-bg-active = ${xrdb:bar-bg-active:#666}
-text = ${xrdb:color5:#f0f}
-icon = ${xrdb:color5:#f0f}
-active = ${xrdb:color15:#fff}
-alert = ${xrdb:color1:#f00}
+bg-active = ${xrdb:bar-bg-active:#333}
+text = ${xrdb:foreground:#ccc}
+icon = ${xrdb:color8:#999}
+active = ${xrdb:foreground:#fff}
+inactive = ${xrdb:color8:#999}
+alert = ${xrdb:color5:#f00}
 
 [settings]
 throttle-output = 5
@@ -39,7 +40,7 @@ index-sort = true
 format = <label-state> <label-mode>
 
 label-mode = %mode%
-label-mode-foreground = ${colors.activr5
+label-mode-foreground = ${colors.active}
 label-mode-background = ${colors.bg-active}
 label-mode-padding = 1
 
@@ -51,10 +52,12 @@ label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-foreground = ${colors.inactive}
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
+label-visible-foreground = ${colors.inactive}
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
