@@ -16,24 +16,20 @@ screenchange-reload = true
 monitor = ${env:MONITOR:}
 bottom = true
 width = 100%
-height = 35
+height = 40
 fixed-center = true
-
+line-size = 0
 background = ${colors.bg}
 foreground = ${colors.text}
+tray-position =
 
-line-size = 0
-
-font-0 = DejaVu Sans Mono:pixelsize=12;3
-font-1 = FontAwesome 5 Free:style=Regular:pixelsize=11;3
-font-2 = FontAwesome 5 Free:style=Solid:pixelsize=11;3
-font-3 = FontAwesome:pixelsize=11;3
+font-0 = DejaVu Sans Mono:size=12;3
+font-1 = FontAwesome 5 Free:style=Solid:size=11;3
+font-2 = FontAwesome:pixelsize=11;3
 
 modules-left = i3
 modules-center = weather
-modules-right = volume xbacklight cpu memory temperature wlan vpn battery date
-
-tray-position =
+modules-right = volume xbacklight wlan vpn battery date
 
 [module/i3]
 type = internal/i3
@@ -43,7 +39,8 @@ index-sort = true
 format = <label-state> <label-mode>
 
 label-mode = %mode%
-label-mode-foreground = ${colors.text}
+label-mode-foreground = ${colors.activr5
+label-mode-background = ${colors.bg-active}
 label-mode-padding = 1
 
 ; focused = Active workspace on focused monitor
@@ -69,60 +66,26 @@ label-urgent-padding = 1
 type = custom/script
 interval = 15
 format = <label>
-label-padding = 2
+label-padding = 1
 exec = ~/.env/polybar/weather.py
 
 [module/vpn]
 type = custom/script
 interval = 2
 format = <label>
-label-padding = 2
+label-padding = 1
 exec = ~/.env/polybar/vpn.sh
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
 
-format = " <label>  "
+format = " <label>"
 label = %percentage%%
 
 format-foreground = ${colors.icon}
-format-padding = 2
+format-padding = 1
 
 label-foreground = ${colors.text}
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-
-format = " <label>/"
-label = %percentage%%
-
-format-foreground = ${colors.icon}
-label-foreground = ${colors.text}
-format-padding = 0
-
-[module/memory]
-type = internal/memory
-interval = 2
-
-format = "<label>  "
-label = %gb_used%
-
-label-foreground = ${colors.text}
-format-padding = 0
 
 [module/wlan]
 type = internal/network
@@ -137,11 +100,11 @@ label-disconnected = 0%
 
 format-connected-foreground = ${colors.icon}
 label-connected-foreground = ${colors.text}
-format-connected-padding = 2
+format-connected-padding = 1
 
 format-disconnected-foreground = ${colors.icon}
 label-disconnected-foreground = ${colors.text}
-format-disconnected-padding = 2
+format-disconnected-padding = 1
 
 [module/eth]
 type = internal/network
@@ -167,7 +130,7 @@ format =  <label>
 label = %date% %time%
 
 format-foreground = ${colors.icon}
-format-padding = 2
+format-padding = 1
 
 label-foreground = ${colors.text}
 
@@ -175,13 +138,13 @@ label-foreground = ${colors.text}
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
-format-muted =   m
+format-muted =  mute
 
 label-volume = %percentage%%
 
-format-volume-padding = 2
+format-volume-padding = 1
 format-muted-foreground = ${colors.icon}
-format-muted-padding = 2
+format-muted-padding = 1
 
 ramp-volume-foreground = ${colors.icon}
 ramp-volume-0 = 
@@ -202,9 +165,9 @@ format-charging = <animation-charging> <label-charging>
 format-full = <ramp-capacity> <label-full>
 format-discharging = <ramp-capacity> <label-discharging>
 
-format-charging-padding = 2
-format-full-padding = 2
-format-discharging-padding = 2
+format-charging-padding = 1
+format-full-padding = 1
+format-discharging-padding = 1
 
 ramp-capacity-foreground = ${colors.icon}
 ramp-capacity-0 = 
