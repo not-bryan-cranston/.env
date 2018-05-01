@@ -101,9 +101,23 @@ dirinfo() {
 #   manopt find -print    # MUST prefix with '-' here.
 #   manopt find '-exec.*' # find options *starting* with '-exec'
 manopt() {
-  local cmd=$1 opt=$2
-  [[ $opt == -* ]] || { (( ${#opt} == 1 )) && opt="-$opt" || opt="--$opt"; }
-  man "$cmd" | col -b | awk -v opt="$opt" -v RS= '$0 ~ "(^|,)[[:blank:]]+" opt "([[:punct:][:space:]]|$)"'
+	local cmd=$1 opt=$2
+	[[ $opt == -* ]] || { (( ${#opt} == 1 )) && opt="-$opt" || opt="--$opt"; }
+	man "$cmd" | col -b | awk -v opt="$opt" -v RS= '$0 ~ "(^|,)[[:blank:]]+" opt "([[:punct:][:space:]]|$)"'
+}
+
+# DESCRIPTION
+#   Print out the colors defined in .Xresources.
+colors() {
+	echo -e "\033[0mNC (No color)"
+	echo -e "\033[0;30mBLACK  \t\t\033[1;30mLIGHT_BLACK"
+	echo -e "\033[0;31mRED    \t\t\033[1;31mLIGHT_RED"
+	echo -e "\033[0;32mGREEN  \t\t\033[1;32mLIGHT_GREEN"
+	echo -e "\033[0;33mYELLOW \t\t\033[1;33mLIGHT_YELLOW"
+	echo -e "\033[0;34mBLUE   \t\t\033[1;34mLIGHT_BLUE"
+	echo -e "\033[0;35mMAGENTA\t\t\033[1;35mLIGHT_MAGENTA"
+	echo -e "\033[0;36mCYAN   \t\t\033[1;36mLIGHT_CYAN"
+	echo -e "\033[0;37mGREY   \t\t\033[1;37mWHITE"
 }
 
 # vars
