@@ -135,11 +135,12 @@ set_from_resource $wht .color7 #ffffff
 set_from_resource $gry .color8 #888888
 
 # appearance
-new_window pixel 2
+default_border pixel 2
+default_floating_border pixel 0
 hide_edge_borders smart
 
 #                       border background text indicator child border
-client.focused          $mag   $blk       $wht $mag      $mag
+client.focused          $blu   $blk       $wht $blu      $blu
 client.focused_inactive $gry   $blk       $wht $gry      $gry
 client.unfocused        $gry   $blk       $wht $gry      $gry
 client.urgent           $red   $blk       $wht $red      $red
@@ -172,7 +173,7 @@ bindsym Control+Right exec --no-startup-id "mpc next"
 bindsym $mod+b exec --no-startup-id "$HOME/.env/bin/vpn"
 
 # program keybindings
-for_window [class="URxvt" instance="floating"] floating enable
+for_window [class="URxvt" instance="floating"] border none, floating enable
 bindsym $mod+Return exec --no-startup-id "urxvt"
 bindsym $mod+Shift+Return exec --no-startup-id "urxvt -name floating"
 

@@ -3,14 +3,13 @@
 my linux setup. at home, this is arch. a work in progress
 
 * wm: i3
-* terminal: urxvt
 * bar: polybar
-* lock: i3lock
-* app switcher: rofi
-
-other tools used:
-
-feh (bg image), compton (composite manager), zathura (pdf viewer), imagemagick (cli image tooling), scrot (screenshots)
+* lock: xautolock, i3lock
+* composite manager: compton
+* terminal: urxvt
+* app launcher: rofi
+* image viewer: feh
+* pdf viewer: zathura
 
 ### installation
 
