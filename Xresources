@@ -4,48 +4,44 @@
 
 ! === colors ===
 
-*.background: #111111
-*.foreground: #a0a0a0
-
-*.colorBD: #cfcfcf
-*.colorUL: #a0a0a0
-*.colorIT: #686868
+*.background: #1e1e20
+*.foreground: #bcbdb6
 
 ! BLK
-*.color0: #111111
-*.color8: #333333
+*.color0: #3c3a3a
+*.color8: #555555
 
 ! RED
-*.color1: #d370a3
-*.color9: #ffa7da
+*.color1: #ee6a6b
+*.color9: #df7a7c
 
 ! GRN
-*.color2: #6d9e3f
-*.color10: #a3d572
+*.color2: #86ffa4
+*.color10: #97dfa9
 
 ! YEL
-*.color3: #b58858
-*.color11: #efbd8b
+*.color3: #f3ff7b
+*.color11: #f0fa8b
 
 ! BLU
-*.color4: #6095c5
-*.color12: #98cbfe
+*.color4: #69baec
+*.color12: #98c3de
 
 ! MAG
-*.color5: #ac7bde
-*.color13: #e5b0ff
+*.color5: #ff83cc
+*.color13: #d389b5
 
 ! CYN
-*.color6: #3ba275
-*.color14: #75daa9
+*.color6: #4ddcfa
+*.color14: #8cebff
 
 ! WHT
-*.color7: #a0a0a0
-*.color15: #ffffff
+*.color7: #ededec
+*.color15: #ededec
 
 ! bar backgrounds
-*.bar-bg: #99000000
-*.bar-bg-active: #55ac7bde
+*.bar-bg: #000000
+*.bar-bg-active: #1e1e20
 
 ! === uxrvt ===
 
