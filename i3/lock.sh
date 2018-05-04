@@ -4,13 +4,13 @@ display_regex="([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)"
 image_regex="([0-9]+)x([0-9]+)"
 
 img="$HOME/.env/i3/lock.png"
-lockbg='/tmp/i3lock.png'
+lockbg="/tmp/i3lock.png"
 
 (( $# )) && { img=$1; }
 
 scrot "$lockbg"
 
-lock_img_info=`identify $img`
+lock_img_info=$(identify $img)
 [[ $lock_img_info =~ $image_regex ]]
 img_width=${BASH_REMATCH[1]}
 img_height=${BASH_REMATCH[2]}
@@ -29,7 +29,7 @@ do
 
 		params="$params '$img' '-geometry' '+$pos_x+$pos_y' '-composite' '-matte' "
 	fi
-done <<<"`xrandr`"
+done <<<"$(xrandr)"
 
 convert "$lockbg" -scale 10% -scale 1000% "$lockbg"
 params="'$lockbg' $params '$lockbg'"
