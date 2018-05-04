@@ -1,12 +1,12 @@
 # mod key <- windows key
 set $mod Mod4
 
-# standard keybindings
+# standard keybindings and settings
 ###########################################################
+font pango:DejaVu Sans Mono 12
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-floating_minimum_size 10 x 10
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -50,10 +50,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+g focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+g focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -131,12 +131,12 @@ set_from_resource $blu .color4 #0000ff
 set_from_resource $mag .color5 #ff00ff
 set_from_resource $cyn .color6 #00ffff
 set_from_resource $wht .color7 #ffffff
-
 set_from_resource $gry .color8 #888888
 
 # appearance
 default_border pixel 2
 default_floating_border pixel 0
+floating_minimum_size 10 x 10
 hide_edge_borders smart
 
 #                       border background text indicator child border
@@ -147,8 +147,8 @@ client.urgent           $red   $blk       $wht $red      $red
 client.placeholder      $gry   $blk       $wht $gry      $gry
 
 # control keybindings
-bindsym $mod+Shift+x floating toggle
-bindsym $mod+x focus mode_toggle
+bindsym $mod+Shift+a floating toggle
+bindsym $mod+a focus mode_toggle
 
 bindsym $mod+Delete exec --no-startup-id shutdown now
 bindsym $mod+Shift+Delete exec --no-startup-id reboot
@@ -181,6 +181,11 @@ bindsym $mod+c exec "xdg-open http://"
 bindsym $mod+space exec "rofi -show run"
 bindsym $mod+Shift+space exec "rofi -show drun"
 
+bindsym $mod+z exec --no-startup-id "$HOME/.env/display/dropdown.sh ranger"
+bindsym $mod+x exec --no-startup-id "$HOME/.env/display/dropdown.sh ncmpcpp"
+bindsym $mod+m exec --no-startup-id "$HOME/.env/display/dropdown.sh 'calcurse -D $HOME/.config/calcurse'"
+bindsym $mod+comma exec --no-startup-id "$HOME/.env/display/dropdown.sh htop"
+
 # lock screen
 exec --no-startup-id xautolock -time 10 -locker "$HOME/.env/i3/lock.sh"
 
@@ -188,7 +193,7 @@ bindsym Control+Mod1+l exec --no-startup-id "$HOME/.env/i3/lock.sh"
 bindsym Mod4+Mod1+z exec --no-startup-id "$HOME/.env/i3/lock.sh"
 bindsym XF86ScreenSaver exec --no-startup-id "$HOME/.env/i3/lock.sh"
 
-# displays
+# display scripts
 exec --no-startup-id "$HOME/.env/display/outputs.sh"
 exec --no-startup-id "$HOME/.env/display/lights_on.sh 590"
 
