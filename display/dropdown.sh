@@ -9,23 +9,23 @@
 
 store=/tmp/dropdown
 
-call="$1"
-id=$(echo "$1" | awk '{print $1}')
-
-# Hide existing dropdown if exists.
-read -r curr < $store > /dev/null
-if [[ -n $curr ]]; then
-	tdrop -n $curr urxvt
-	rm $store
-fi
-
-# Exit if no argument given.
-if [[ -z $1 ]]; then
-	exit 1
-fi
-
-# Show dropdown if it wasn't just closed.
-if [[ $curr != $id ]]; then
+# Show or hide dropdown if argument given.
+if [[ -n $1 ]]; then
+	call="$1"
+	id=$(echo "$1" | awk '{print $1}')
 	tdrop -m -a -w 1200 -h 800 -x 0 -y -840 -n "$id" -f "-name floating -e $call" urxvt
+fi
+
+read -r curr < $store > /dev/null
+
+# Close previous dropdown if exists.
+if [[ -n $curr && $curr != $id ]]; then
+	tdrop -n $curr urxvt
+fi
+
+# Write current state.
+if [[ $curr == $id ]]; then
+	rm $store
+else
 	echo $id > $store
 fi
