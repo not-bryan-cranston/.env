@@ -1,13 +1,19 @@
+! settings
 rofi.width: 700
-rofi.bw: 2
 rofi.padding: 20
+rofi.lines: 10
+rofi.line-padding: 2
+rofi.bw: 0
 rofi.separator-style: solid
 rofi.hide-scrollbar: true
-rofi.lines: 10
+rofi.font: DejaVu Sans Mono 12
 
+! colors
 rofi.color-enabled: true
-rofi.color-window: #111111, #6095c5, #6095c5
-rofi.color-normal: #111111, #a0a0a0, #111111, #6095c5, #ffffff
-rofi.color-active: #111111, #a0a0a0, #111111, #6095c5, #ffffff
-rofi.color-urgent: #111111, #a0a0a0, #111111, #6095c5, #ffffff
 
+!                  bg       border   sep
+rofi.color-window: #1e1e1e, #6095c5, #69baec
+!                  bg       fg       bg alt   hl bg    hl fg
+rofi.color-normal: #1e1e1e, #bcbdb6, #1e1e1e, #69baec, #ffffff
+rofi.color-active: #1e1e1e, #bcbdb6, #1e1e1e, #69baec, #ffffff
+rofi.color-urgent: #1e1e1e, #bcbdb6, #1e1e1e, #69baec, #ffffff
