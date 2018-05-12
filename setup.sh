@@ -10,7 +10,8 @@ if [ "$distro" = "arch" ]; then
 	sudo pacman -S --noconfirm scrot ttf-dejavu ttf-font-awesome
 
 	# tools
-	sudo pacman -S --noconfirm gvim git gdb ltrace strace rsync nmap traceroute
+	sudo pacman -S --noconfirm gvim git gdb ltrace strace rsync
+	sudo pacman -S --noconfirm nmap traceroute fping
 	#sudo pacman -S --noconfirm avr-binutils avr-gcc avrdude avr-libc
 
 	# software

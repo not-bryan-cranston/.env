@@ -109,7 +109,7 @@ manopt() {
 # DESCRIPTION
 #   Print out the colors defined in .Xresources.
 colors() {
-	echo -e "\033[0mNC (No color)"
+	echo -e "\033[0mNO_COLOR"
 	echo -e "\033[0;30mBLACK  \t\t\033[1;30mLIGHT_BLACK"
 	echo -e "\033[0;31mRED    \t\t\033[1;31mLIGHT_RED"
 	echo -e "\033[0;32mGREEN  \t\t\033[1;32mLIGHT_GREEN"
@@ -119,6 +119,17 @@ colors() {
 	echo -e "\033[0;36mCYAN   \t\t\033[1;36mLIGHT_CYAN"
 	echo -e "\033[0;37mGREY   \t\t\033[1;37mWHITE"
 }
+
+# networking
+rping() { fping -g $1 | grep alive; }
+
+# conversion
+d2x() { echo "obase=16;${1}" | bc | awk '{print tolower($0)}'; }
+d2b() { echo "obase=2;${1}" | bc; }
+x2d() { echo "ibase=16;${1^^}" | bc; }
+x2b() { echo "ibase=16;obase=2;${1^^}" | bc; }
+b2d() { echo "ibase=2;${1}" | bc; }
+b2x() { echo "ibase=2;obase=10000;${1}" | bc | awk '{print tolower($0)}'; }
 
 # vars
 
