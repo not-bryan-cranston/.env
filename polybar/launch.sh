@@ -15,7 +15,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 wi="$(iw dev | grep Interface | sed -n 1p | cut -d ' ' -f 2)"
 
 # Launch bar(s)
-if type "xrandr"; then
+if type "xrandr" > /dev/null; then
 	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
 		MONITOR=$m WIRELESS_INTERFACE=$wi polybar main &
 	done
