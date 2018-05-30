@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Source machine specific config in case window manager hasn't done this yet.
+# This is a hack. Ideally .xsession would source .bashrc, but I ran into some
+# strange bugs.
+source $HOME/.config/bashrc
+
 # Terminate already running bar instances
 killall -q polybar
 
