@@ -11,13 +11,14 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-# Get wireless interface.
-wi="$(iw dev | grep Interface | sed -n 1p | cut -d ' ' -f 2)"
+# Get network interfaces.
+wireless="$(iw dev | grep Interface | sed -n 1p | cut -d ' ' -f 2)"
+wired="$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | xargs)"
 
 # Launch bar(s)
 if type "xrandr" > /dev/null; then
 	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-		MONITOR=$m WIRELESS_INTERFACE=$wi polybar main &
+		MONITOR=$m WIRELESS_INTERFACE=$wireless WIRED_INTERFACE=$wired polybar main &
 	done
 else
 	polybar main &

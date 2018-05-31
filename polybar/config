@@ -30,7 +30,7 @@ font-2 = FontAwesome:pixelsize=11;3
 
 modules-left = i3
 modules-center = weather
-modules-right = volume xbacklight wlan vpn battery date
+modules-right = volume xbacklight wlan eth vpn battery date
 
 [module/i3]
 type = internal/i3
@@ -114,13 +114,12 @@ type = internal/network
 interface = ${env:WIRED_INTERFACE:}
 interval = 3.0
 
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+format-connected =  <label-connected>
+label-connected = %linkspeed%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;label-disconnected = %ifname% disconnected
+format-connected-foreground = ${colors.icon}
+label-connected-foreground = ${colors.text}
+format-connected-padding = 1
 
 [module/date]
 type = internal/date
