@@ -13,6 +13,8 @@ my linux setup. at home, this is arch. a work in progress
 
 ### installation
 
+WARNING: this will overwrite any existing dotfiles, so back them up first.
+
 ```shell
 cd ~
 git clone https://github.com/avanpo/.env.git
