@@ -133,10 +133,6 @@ x2b() { echo "ibase=16;obase=2;${1^^}" | bc; }
 b2d() { echo "ibase=2;${1}" | bc; }
 b2x() { echo "ibase=2;obase=10000;${1}" | bc | awk '{print tolower($0)}'; }
 
-# vars
-
-WIRELESS_INTERFACE="$(iw dev | grep Interface | cut -d ' ' -f 2)"
-
 # source machine specific config
 
 . $HOME/.config/bashrc
