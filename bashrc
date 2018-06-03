@@ -2,7 +2,9 @@
 
 # settings
 
-export HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+shopt -s histappend
 
 set -o vi
 export EDITOR='vim'
