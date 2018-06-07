@@ -24,7 +24,7 @@ background = ${colors.bg}
 foreground = ${colors.text}
 tray-position =
 
-font-0 = DejaVu Sans Mono:size=12;3
+font-0 = DejaVu Sans Mono:size=12:weight=bold;3
 font-1 = FontAwesome 5 Free:style=Solid:size=11;3
 font-2 = FontAwesome:pixelsize=11;3
 
@@ -58,6 +58,7 @@ label-unfocused-padding = 1
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-foreground = ${colors.inactive}
+label-visible-background = ${colors.bg-active}
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set

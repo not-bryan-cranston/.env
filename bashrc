@@ -135,4 +135,4 @@ b2x() { echo "ibase=2;obase=10000;${1}" | bc | awk '{print tolower($0)}'; }
 
 # source machine specific config
 
-. $HOME/.config/bashrc
+[[ -f "$HOME/.config/bashrc" ]] && . "$HOME/.config/bashrc"
