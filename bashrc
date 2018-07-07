@@ -40,6 +40,7 @@ alias less='less -RS'
 alias l='ls -lah'
 alias la='ls -a'
 alias ll='l --color=always | less'
+alias lt='ls -lahtr'
 
 alias q='exit'
 alias ps='ps -efjH'
