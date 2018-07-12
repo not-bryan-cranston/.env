@@ -6,11 +6,14 @@
 
 # Exit if no root backup directory given.
 if [ -z $1 ] || [ ! -d "$1" ]; then
-	echo "No root backup directory given, or directory does not exist." 1>&2
+	echo "Usage: BACKUP_DIRS=\"src_dir1 src_dir2\" backup dest_dir" 1>&2
+	echo "" 1>&2
+	echo "Note that the source directories should be in home. If you want " 1>&2
+	echo "to back up \$HOME/dir, then only enter \"dir\"." 1>&2
 	exit 1
 fi
 
-backup_root=$1
+backup_root="$1"
 
 # Exit if there is nothing to do.
 if [ -z "$BACKUP_DIRS" ]; then
