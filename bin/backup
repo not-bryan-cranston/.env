@@ -49,6 +49,6 @@ for dir in $BACKUP_DIRS; do
 	deleted="$(rsync -nau --delete --out-format='%n%L' "$src" "$dest")"
 	if [ $(echo -n "$deleted" | grep -c '^') -ne  0 ]; then
 		echo -e "=> ${RED}WARNING${RST}: The following files exist in the destination but have been deleted in the source."
-		echo "$deleted" | awk '{print "'"$dest"'/"$2}'
+		echo "$deleted" | cut -d ' ' -f 2-
 	fi
 done
