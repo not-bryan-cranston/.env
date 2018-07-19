@@ -7,25 +7,40 @@ distro=$(cat /etc/os-release |& grep '^ID=' | cut -d '=' -f 2)
 
 if [ "$distro" = "arch" ]; then
 	# desktop environment
-	sudo pacman -S --noconfirm i3 rofi ranger zathura compton conky xautolock
+	#####################
+	sudo pacman -S --noconfirm i3 rofi ranger compton conky xautolock
 	sudo pacman -S --noconfirm scrot ttf-dejavu ttf-font-awesome
 
-	# tools
-	sudo pacman -S --noconfirm gvim git gdb ltrace strace rsync
-	sudo pacman -S --noconfirm nmap traceroute fping
-	sudo pacman -S --noconfirm avr-binutils avr-gcc avrdude avr-libc
-
 	# software
-	sudo pacman -S --noconfirm firefox keepassx2 irssi transmission openvpn
+	#####################
+	sudo pacman -S --noconfirm firefox keepassx2 irssi transmission
 
 	# media
-	sudo pacman -S --noconfirm mpd mpc ncmpcpp mpv gimp 
+	#####################
+	sudo pacman -S --noconfirm mpd mpc ncmpcpp mpv gimp zathura
+
+	# tools
+	#####################
+	# workflow
+	sudo pacman -S --noconfirm gvim git rsync
+	# debugging
+	sudo pacman -S --noconfirm gdb ltrace strace
+	# networking
+	sudo pacman -S --noconfirm openvpn bluez bluez-utils
+	sudo pacman -S --noconfirm nmap traceroute fping wireshark-cli tcpdump
+	sudo gpasswd -a "$USER" wireshark
+	# embedded
+	sudo pacman -S --noconfirm avr-binutils avr-gcc avrdude avr-libc
 fi
 
 # create folders
 
 mkdir -p downloads
+mkdir -p music
+
 mkdir -p .config/i3
+mkdir -p .config/gtk-3.0
+mkdir -p .config/mpd/playlists
 mkdir -p .config/polybar
 mkdir -p .config/rofi
 mkdir -p .config/zathura
@@ -56,6 +71,7 @@ linkcf() {
 
 linkcf i3/config
 linkcf gtk-3.0/settings.ini
+linkcf mpd/mpd.conf
 linkcf polybar/config
 linkcf rofi/config
 linkcf zathura/zathurarc
